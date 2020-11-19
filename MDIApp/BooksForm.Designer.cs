@@ -53,6 +53,10 @@
             this.usuńToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.dodajToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.filterComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.contextMenuStrip.SuspendLayout();
             this.toolStripContainer1.BottomToolStripPanel.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
@@ -62,6 +66,7 @@
             this.toolStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
+            this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // booksListView
@@ -76,7 +81,7 @@
             this.booksListView.HideSelection = false;
             this.booksListView.Location = new System.Drawing.Point(0, 0);
             this.booksListView.Name = "booksListView";
-            this.booksListView.Size = new System.Drawing.Size(441, 172);
+            this.booksListView.Size = new System.Drawing.Size(441, 147);
             this.booksListView.TabIndex = 2;
             this.booksListView.UseCompatibleStateImageBehavior = false;
             this.booksListView.View = System.Windows.Forms.View.Details;
@@ -144,7 +149,7 @@
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.booksListView);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(441, 172);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(441, 147);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
@@ -156,6 +161,7 @@
             // 
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip1);
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.menuStrip1);
+            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip2);
             // 
             // statusStrip1
             // 
@@ -248,7 +254,7 @@
             // dodajToolStripMenuItem
             // 
             this.dodajToolStripMenuItem.Name = "dodajToolStripMenuItem";
-            this.dodajToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.dodajToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.dodajToolStripMenuItem.Text = "Dodaj";
             this.dodajToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
             // 
@@ -281,6 +287,39 @@
             this.dodajToolStripMenuItem1.Text = "Dodaj";
             this.dodajToolStripMenuItem1.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
             // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
+            // 
+            // toolStrip2
+            // 
+            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabel1,
+            this.filterComboBox});
+            this.toolStrip2.Location = new System.Drawing.Point(3, 24);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.Size = new System.Drawing.Size(238, 25);
+            this.toolStrip2.TabIndex = 2;
+            // 
+            // filterComboBox
+            // 
+            this.filterComboBox.Items.AddRange(new object[] {
+            "Przed 2000r.",
+            "Po 2000r.",
+            "Wszystko"});
+            this.filterComboBox.Name = "filterComboBox";
+            this.filterComboBox.Size = new System.Drawing.Size(121, 25);
+            this.filterComboBox.Validated += new System.EventHandler(this.FilterComboBox_Validated);
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(103, 22);
+            this.toolStripLabel1.Text = "Filtr daty wydania:";
+            this.toolStripLabel1.Click += new System.EventHandler(this.toolStripLabel1_Click);
+            // 
             // BooksForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -308,6 +347,8 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
+            this.toolStrip2.ResumeLayout(false);
+            this.toolStrip2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -337,6 +378,10 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripButton deleteToolStripButton;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+        private System.Windows.Forms.ToolStrip toolStrip2;
+        private System.Windows.Forms.ToolStripComboBox filterComboBox;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
     }
 }
 

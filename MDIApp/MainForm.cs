@@ -36,6 +36,9 @@ namespace MDIApp
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            Book.CategoryToString.Add(Book.CategoryEnum.criminal, "Kryminał");
+            Book.CategoryToString.Add(Book.CategoryEnum.poetry, "Poezja");
+            Book.CategoryToString.Add(Book.CategoryEnum.fantasy, "Fantastyka");
             openBooksForm();
         }
         

@@ -14,6 +14,7 @@ namespace MDIApp
     {
         private Book book;
         private List<Book> books;
+        
 
         public string BookTitle
         {
@@ -31,9 +32,9 @@ namespace MDIApp
             get { return pubDateTimePicker.Value; }
         }
 
-        public string BookCategory
+        public Book.CategoryEnum BookCategory
         {
-            get { return categoryTextBox.Text; }
+            get { return book.Category; }
         }
 
         public BookForm(Book book, List<Book> books)
@@ -49,17 +50,16 @@ namespace MDIApp
         {
             if (book != null)
             {
-              
                 titleTextBox.Text = book.Title.ToString();
                 authorTextBox.Text = book.Author.ToString();
                 pubDateTimePicker.Value = book.PubDate;
-                categoryTextBox.Text = book.Category.ToString();
-                // TODO LATER CHANGE CATEGORY TO PICTURES
             }
             else
             {
                 pubDateTimePicker.Value = new DateTime(2020, 11, 20);
+                book = new Book("", "", BookPubDate, Book.CategoryEnum.criminal);
             }
+            setImageByBookCategory(book.Category);
         }
 
         private void OkButton_Click(object sender, EventArgs e)
@@ -144,6 +144,29 @@ namespace MDIApp
         private void label4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void setImageByBookCategory(Book.CategoryEnum category)
+        {
+            switch (category)
+            {
+                case Book.CategoryEnum.criminal:
+                    this.categoryPictureBox.Image = global::MDIApp.Properties.Resources.criminal;
+                    break;
+                case Book.CategoryEnum.poetry:
+                    this.categoryPictureBox.Image = global::MDIApp.Properties.Resources.poetry;
+                    break;
+                case Book.CategoryEnum.fantasy:
+                default:
+                    this.categoryPictureBox.Image = global::MDIApp.Properties.Resources.fantasy;
+                    break;
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            book.Category = (Book.CategoryEnum)(((int)book.Category + 1) % 3); // next category
+            setImageByBookCategory(book.Category);
         }
     }
 }

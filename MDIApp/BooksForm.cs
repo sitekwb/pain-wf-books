@@ -129,25 +129,48 @@ namespace MDIApp
             deleteBook_Click();
         }
 
+        private bool filterIncludesInForm(DateTime date)
+        {
+            int newValue = filterComboBox.SelectedIndex;
+            switch (newValue)
+            {
+                case 0: // < 2000
+                    return date.Year < 2000;
+                case 1: // >= 2000
+                    return date.Year >= 2000;
+                case 2: // ALL
+                default:
+                    return true;
+            }
+
+        }
+
         private void AddItem( ListViewItem item)
         {
             Book book = (Book)item.Tag;
+            if (!filterIncludesInForm(book.PubDate))
+            {
+                return;
+            }
             while (item.SubItems.Count < 4)
                 item.SubItems.Add(new ListViewItem.ListViewSubItem());
             item.SubItems[0].Text = book.Title.ToString();
             item.SubItems[1].Text = book.Author.ToString();
             item.SubItems[2].Text = book.PubDate.ToShortDateString();
-            item.SubItems[3].Text = book.Category.ToString();
+            item.SubItems[3].Text = Book.CategoryToString[book.Category];
         }
 
         private void UpdateItem(ListViewItem item)
         {
             Book book = (Book)item.Tag;
-            
+            if (!filterIncludesInForm(book.PubDate))
+            {
+                return;
+            }
             item.SubItems[0].Text = book.Title.ToString();
             item.SubItems[1].Text = book.Author.ToString();
             item.SubItems[2].Text = book.PubDate.ToShortDateString();
-            item.SubItems[3].Text = book.Category.ToString();
+            item.SubItems[3].Text = Book.CategoryToString[book.Category];
         }
 
 
@@ -157,8 +180,13 @@ namespace MDIApp
             booksListView.Items.Clear();
             foreach( Book book in Document.books)
             {
+                if (!filterIncludesInForm(book.PubDate))
+                {
+                    continue;
+                }
                 ListViewItem item = new ListViewItem();
                 item.Tag = book;
+                
                 AddItem(item);
                 booksListView.Items.Add(item);
             }
@@ -222,6 +250,22 @@ namespace MDIApp
         private void usuńToolStripMenuItem_Click(object sender, EventArgs e)
         {
             deleteBook_Click();
+        }
+
+        private void toolStripLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FilterComboBox_Validated(object sender, EventArgs e)
+        {
+            /*int newValue = filterComboBox.SelectedIndex;
+            if (Document.CurrentFilterValue == newValue)
+            {
+                return;
+            }
+            Document.CurrentFilterValue = newValue;*/
+            UpdateItems();
         }
     }
 }

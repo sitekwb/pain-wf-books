@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookForm));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -37,9 +38,11 @@
             this.pubDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.okButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
-            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.label4 = new System.Windows.Forms.Label();
-            this.categoryTextBox = new System.Windows.Forms.TextBox();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.categoryPictureBox = new System.Windows.Forms.PictureBox();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.categoryPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,10 +121,6 @@
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
-            // errorProvider
-            // 
-            this.errorProvider.ContainerControl = this;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -132,19 +131,35 @@
             this.label4.Text = "Kategoria";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // categoryTextBox
+            // imageList1
             // 
-            this.categoryTextBox.Location = new System.Drawing.Point(125, 99);
-            this.categoryTextBox.Name = "categoryTextBox";
-            this.categoryTextBox.Size = new System.Drawing.Size(200, 20);
-            this.categoryTextBox.TabIndex = 9;
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "poetry.jpg");
+            this.imageList1.Images.SetKeyName(1, "fantasy.jpg");
+            this.imageList1.Images.SetKeyName(2, "criminal.jpg");
+            // 
+            // categoryPictureBox
+            // 
+            this.categoryPictureBox.Image = global::MDIApp.Properties.Resources.criminal;
+            this.categoryPictureBox.Location = new System.Drawing.Point(125, 90);
+            this.categoryPictureBox.Name = "categoryPictureBox";
+            this.categoryPictureBox.Size = new System.Drawing.Size(100, 50);
+            this.categoryPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.categoryPictureBox.TabIndex = 9;
+            this.categoryPictureBox.TabStop = false;
+            this.categoryPictureBox.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // BookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(365, 186);
-            this.Controls.Add(this.categoryTextBox);
+            this.Controls.Add(this.categoryPictureBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.okButton);
@@ -157,6 +172,7 @@
             this.Name = "BookForm";
             this.Text = "Formularz książki";
             this.Load += new System.EventHandler(this.StudentForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.categoryPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -173,8 +189,9 @@
         private System.Windows.Forms.DateTimePicker pubDateTimePicker;
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.Button cancelButton;
-        private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox categoryTextBox;
+        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.PictureBox categoryPictureBox;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

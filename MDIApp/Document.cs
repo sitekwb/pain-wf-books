@@ -26,6 +26,11 @@ określającej kategorię).
             set;
         }
 
+        public int CurrentFilterValue
+        {
+            get;
+            set;
+        }
         public Document()
         {
             OpenFormsCount = 0;

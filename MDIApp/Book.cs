@@ -24,18 +24,28 @@ namespace MDIApp
             get;
             set;
         }
-        public string Category
+        public enum CategoryEnum : int
         {
+            criminal = 0,
+            poetry = 1,
+            fantasy = 2
+        }
+
+        public CategoryEnum Category {
             get;
             set;
         }
 
-        public Book( string title, string author, DateTime pubDate, string category )
+        public static Dictionary<CategoryEnum, string> CategoryToString = new Dictionary<CategoryEnum, string>();
+
+        public Book( string title, string author, DateTime pubDate, CategoryEnum category )
         {
             Title = title;
             Author = author;
             Category = category;
             PubDate = pubDate;
+
+            
         }
     }
 }

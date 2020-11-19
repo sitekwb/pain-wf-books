@@ -8,29 +8,34 @@ namespace MDIApp
 {
     public class Book
     {
-        public string Name
+        public string Title
+        {
+            get;
+            set;
+        }
+        public string Author
         {
             get;
             set;
         }
 
-        public long Index
+        public DateTime PubDate
+        {
+            get;
+            set;
+        }
+        public string Category
         {
             get;
             set;
         }
 
-        public DateTime BirthDate
+        public Book( string title, string author, DateTime pubDate, string category )
         {
-            get;
-            set;
-        }
-
-        public Book( string name, long index, DateTime birthDate )
-        {
-            Name = name;
-            Index = index;
-            BirthDate = birthDate;
+            Title = title;
+            Author = author;
+            Category = category;
+            PubDate = pubDate;
         }
     }
 }

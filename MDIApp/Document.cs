@@ -14,26 +14,41 @@ określającej kategorię).
 */
     public class Document
     {
-        public List<Book> students = new List<Book>();
+        public List<Book> books = new List<Book>();
 
-        public event Action<Book> AddStudentEvent;
+        public event Action<Book> AddBookEvent;
+        public event Action<Book> UpdateBookEvent;
+        public event Action<Book> DeleteBookEvent;
 
-        public void AddStudent( Book student )
+        public int OpenFormsCount
         {
-            students.Add(student);
-
-            //if (AddStudentEvent != null)
-            //    AddStudentEvent(student);
-
-            //if ( AddStudentEvent != null)
-            //    AddStudentEvent.Invoke(student);
-
-            AddStudentEvent?.Invoke(student);
+            get;
+            set;
         }
 
-        public void UpdateStudent(Book student)
+        public Document()
         {
-            throw new NotImplementedException();
+            OpenFormsCount = 0;
         }
+
+        public void AddBook( Book book )
+        {
+            books.Add(book);
+
+            AddBookEvent?.Invoke(book);
+        }
+
+        public void UpdateBook(Book book)
+        {
+            UpdateBookEvent?.Invoke(book);
+        }
+
+        public void DeleteBook(Book book)
+        {
+            DeleteBookEvent?.Invoke(book);
+            
+            books.Remove(book);
+        }
+
     }
 }

@@ -34,7 +34,7 @@ namespace MDIApp
 
         public Book.CategoryEnum BookCategory
         {
-            get { return book.Category; }
+            get { return categoryControl1.Category; }
         }
 
         public BookForm(Book book, List<Book> books)
@@ -44,6 +44,12 @@ namespace MDIApp
             this.CancelButton = cancelButton;
             this.book = book;
             this.books = books;
+            categoryControl1.UpdateCategoryEvent += CategoryControl1_UpdateCategoryEvent;
+        }
+
+        public void CategoryControl1_UpdateCategoryEvent(Book.CategoryEnum category)
+        {
+            categoryLabel.Text = Book.CategoryToString[category];
         }
 
         private void StudentForm_Load(object sender, EventArgs e)
@@ -53,13 +59,13 @@ namespace MDIApp
                 titleTextBox.Text = book.Title.ToString();
                 authorTextBox.Text = book.Author.ToString();
                 pubDateTimePicker.Value = book.PubDate;
+                categoryControl1.Category = book.Category;
             }
             else
             {
                 pubDateTimePicker.Value = new DateTime(2020, 11, 20);
-                book = new Book("", "", BookPubDate, Book.CategoryEnum.criminal);
+                categoryControl1.Category = Book.CategoryEnum.criminal;
             }
-            setImageByBookCategory(book.Category);
         }
 
         private void OkButton_Click(object sender, EventArgs e)
@@ -146,7 +152,8 @@ namespace MDIApp
 
         }
 
-        private void setImageByBookCategory(Book.CategoryEnum category)
+
+        /*private void setImageByBookCategory(Book.CategoryEnum category)
         {
             switch (category)
             {
@@ -167,6 +174,11 @@ namespace MDIApp
         {
             book.Category = (Book.CategoryEnum)(((int)book.Category + 1) % 3); // next category
             setImageByBookCategory(book.Category);
+        }*/
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

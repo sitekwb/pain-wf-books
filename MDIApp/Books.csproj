@@ -75,6 +75,9 @@
     <Compile Include="UserControl1.Designer.cs">
       <DependentUpon>CategoryControl.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CategoryControl.resx">
+      <DependentUpon>CategoryControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

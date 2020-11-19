@@ -1,7 +1,7 @@
 ﻿
 namespace MDIApp
 {
-    partial class UserControl1
+    partial class CategoryControl
     {
         /// <summary> 
         /// Wymagana zmienna projektanta.
@@ -29,10 +29,36 @@ namespace MDIApp
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.categoryPictureBox = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryPictureBox)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // categoryPictureBox
+            // 
+            this.categoryPictureBox.Image = global::MDIApp.Properties.Resources.criminal;
+            this.categoryPictureBox.Location = new System.Drawing.Point(0, 3);
+            this.categoryPictureBox.Name = "categoryPictureBox";
+            this.categoryPictureBox.Size = new System.Drawing.Size(132, 62);
+            this.categoryPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.categoryPictureBox.TabIndex = 0;
+            this.categoryPictureBox.TabStop = false;
+            this.categoryPictureBox.Click += new System.EventHandler(this.pictureBox1_Click_1);
+            // 
+            // CategoryControl
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.categoryPictureBox);
+            this.Name = "CategoryControl";
+            this.Size = new System.Drawing.Size(132, 66);
+            this.Load += new System.EventHandler(this.CategoryControl_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.categoryPictureBox)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.PictureBox categoryPictureBox;
     }
 }

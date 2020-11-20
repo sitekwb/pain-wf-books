@@ -55,11 +55,15 @@ namespace MDIApp
 
         private void Document_AddBookEvent(Book book)
         {
-            ListViewItem item = new ListViewItem();
-            item.Tag = book;
-            AddItem(item);
-            booksListView.Items.Add(item);
-            UpdateStatusStripValue();
+            if (filterIncludesInForm(book.PubDate))
+            {
+                ListViewItem item = new ListViewItem();
+                item.Tag = book;
+                UpdateItem(item);
+
+                booksListView.Items.Add(item);
+                UpdateStatusStripValue();
+            }
         }
 
         private void Document_UpdateBookEvent(Book book)
@@ -68,11 +72,18 @@ namespace MDIApp
             {
                 if(ReferenceEquals(((Book)item.Tag), book))
                 {
-                    UpdateItem(item);
-                    break;
+                    if (filterIncludesInForm(book.PubDate))
+                        UpdateItem(item);
+                    else
+                    {
+                        booksListView.Items.Remove(item);
+                        UpdateStatusStripValue();
+                    }
+                    return;
                 }
+
             }
-            // status update not needed - number of elements is the same
+            Document_AddBookEvent(book);
         }
 
         private void Document_DeleteBookEvent(Book book)
@@ -82,10 +93,10 @@ namespace MDIApp
                 if (ReferenceEquals(((Book)item.Tag), book))
                 {
                     booksListView.Items.Remove(item);
-                    break;
+                    UpdateStatusStripValue();
+                    return;
                 }
             }
-            UpdateStatusStripValue();
         }
 
         private void addBook_Click()
@@ -157,28 +168,12 @@ namespace MDIApp
 
         }
 
-        private void AddItem( ListViewItem item)
-        {
-            Book book = (Book)item.Tag;
-            if (!filterIncludesInForm(book.PubDate))
-            {
-                return;
-            }
-            while (item.SubItems.Count < 4)
-                item.SubItems.Add(new ListViewItem.ListViewSubItem());
-            item.SubItems[0].Text = book.Title.ToString();
-            item.SubItems[1].Text = book.Author.ToString();
-            item.SubItems[2].Text = book.PubDate.ToShortDateString();
-            item.SubItems[3].Text = Book.CategoryToString[book.Category];
-        }
 
         private void UpdateItem(ListViewItem item)
         {
             Book book = (Book)item.Tag;
-            if (!filterIncludesInForm(book.PubDate))
-            {
-                return;
-            }
+            while (item.SubItems.Count < 4)
+                item.SubItems.Add(new ListViewItem.ListViewSubItem());
             item.SubItems[0].Text = book.Title.ToString();
             item.SubItems[1].Text = book.Author.ToString();
             item.SubItems[2].Text = book.PubDate.ToShortDateString();
@@ -192,15 +187,14 @@ namespace MDIApp
             booksListView.Items.Clear();
             foreach( Book book in Document.books)
             {
-                if (!filterIncludesInForm(book.PubDate))
+                if (filterIncludesInForm(book.PubDate))
                 {
-                    continue;
+                    ListViewItem item = new ListViewItem();
+                    item.Tag = book;
+
+                    UpdateItem(item);
+                    booksListView.Items.Add(item);
                 }
-                ListViewItem item = new ListViewItem();
-                item.Tag = book;
-                
-                AddItem(item);
-                booksListView.Items.Add(item);
             }
             UpdateStatusStripValue();
         }

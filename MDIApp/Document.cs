@@ -20,11 +20,7 @@ namespace MDIApp
             set;
         }
 
-        public int CurrentFilterValue
-        {
-            get;
-            set;
-        }
+        
         public Document()
         {
             OpenFormsCount = 0;
@@ -40,6 +36,7 @@ namespace MDIApp
         public void UpdateBook(Book book)
         {
             UpdateBookEvent?.Invoke(book);
+
         }
 
         public void DeleteBook(Book book)

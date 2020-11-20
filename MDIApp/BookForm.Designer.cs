@@ -52,7 +52,6 @@
             this.label1.Size = new System.Drawing.Size(32, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tytuł";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -62,7 +61,6 @@
             this.label2.Size = new System.Drawing.Size(32, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Autor";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -127,7 +125,6 @@
             this.label4.Size = new System.Drawing.Size(52, 13);
             this.label4.TabIndex = 8;
             this.label4.Text = "Kategoria";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // errorProvider
             // 
@@ -148,7 +145,6 @@
             this.categoryLabel.Size = new System.Drawing.Size(48, 13);
             this.categoryLabel.TabIndex = 11;
             this.categoryLabel.Text = "Kryminał";
-            this.categoryLabel.Click += new System.EventHandler(this.label5_Click);
             // 
             // BookForm
             // 
@@ -168,7 +164,7 @@
             this.Controls.Add(this.label1);
             this.Name = "BookForm";
             this.Text = "Formularz książki";
-            this.Load += new System.EventHandler(this.StudentForm_Load);
+            this.Load += new System.EventHandler(this.Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

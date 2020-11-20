@@ -27,6 +27,7 @@ namespace MDIApp
             Document.AddBookEvent += Document_AddBookEvent;
             Document.UpdateBookEvent += Document_UpdateBookEvent;
             Document.DeleteBookEvent += Document_DeleteBookEvent;
+            menuStrip1.Visible = false;
             ResizeColumns();
         }
 
@@ -228,21 +229,7 @@ namespace MDIApp
             addBook_Click();
         }
 
-        private void booksListView_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
+        
         private void editToolStripButton_Click(object sender, EventArgs e)
         {
             editBook_Click();
@@ -262,20 +249,9 @@ namespace MDIApp
         {
             deleteBook_Click();
         }
-
-        private void toolStripLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void FilterComboBox_Validated(object sender, EventArgs e)
         {
-            /*int newValue = filterComboBox.SelectedIndex;
-            if (Document.CurrentFilterValue == newValue)
-            {
-                return;
-            }
-            Document.CurrentFilterValue = newValue;*/
             UpdateItems();
         }
     }

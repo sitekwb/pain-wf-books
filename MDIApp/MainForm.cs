@@ -42,19 +42,11 @@ namespace MDIApp
             openBooksForm();
         }
         
-        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
 
         private void Form1_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             e.Cancel = false;
         }
 
-        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
     }
 }

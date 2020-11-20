@@ -42,15 +42,15 @@
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.addToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.editToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.deleteToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.edycjaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dodajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.edytujToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuńToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.addToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.editToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.deleteToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.filterComboBox = new System.Windows.Forms.ToolStripComboBox();
@@ -63,8 +63,8 @@
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -85,7 +85,6 @@
             this.booksListView.TabIndex = 2;
             this.booksListView.UseCompatibleStateImageBehavior = false;
             this.booksListView.View = System.Windows.Forms.View.Details;
-            this.booksListView.SelectedIndexChanged += new System.EventHandler(this.booksListView_SelectedIndexChanged);
             // 
             // columnHeaderTitle
             // 
@@ -169,61 +168,12 @@
             this.statusStrip1.Size = new System.Drawing.Size(135, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Visible = false;
-            this.statusStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip1_ItemClicked);
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Click += new System.EventHandler(this.toolStripStatusLabel1_Click);
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addToolStripButton,
-            this.editToolStripButton,
-            this.deleteToolStripButton});
-            this.toolStrip1.Location = new System.Drawing.Point(3, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(167, 42);
-            this.toolStrip1.TabIndex = 1;
-            this.toolStrip1.Visible = false;
-            // 
-            // addToolStripButton
-            // 
-            this.addToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("addToolStripButton.Image")));
-            this.addToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.addToolStripButton.Name = "addToolStripButton";
-            this.addToolStripButton.Size = new System.Drawing.Size(42, 39);
-            this.addToolStripButton.Text = "Dodaj";
-            this.addToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.addToolStripButton.ToolTipText = "Dodaj";
-            this.addToolStripButton.Click += new System.EventHandler(this.addToolStripButton_Click);
-            // 
-            // editToolStripButton
-            // 
-            this.editToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("editToolStripButton.Image")));
-            this.editToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.editToolStripButton.Name = "editToolStripButton";
-            this.editToolStripButton.Size = new System.Drawing.Size(44, 39);
-            this.editToolStripButton.Text = "Edytuj";
-            this.editToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.editToolStripButton.ToolTipText = "Edytuj";
-            this.editToolStripButton.Click += new System.EventHandler(this.editToolStripButton_Click);
-            // 
-            // deleteToolStripButton
-            // 
-            this.deleteToolStripButton.AccessibleName = "Usuń";
-            this.deleteToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteToolStripButton.Image")));
-            this.deleteToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.deleteToolStripButton.Name = "deleteToolStripButton";
-            this.deleteToolStripButton.Size = new System.Drawing.Size(38, 39);
-            this.deleteToolStripButton.Text = "Usuń";
-            this.deleteToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.deleteToolStripButton.Click += new System.EventHandler(this.deleteToolStripButton_Click);
             // 
             // menuStrip1
             // 
@@ -268,6 +218,53 @@
             this.usuńToolStripMenuItem.Text = "Usuń";
             this.usuńToolStripMenuItem.Click += new System.EventHandler(this.usuńToolStripMenuItem_Click);
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addToolStripButton,
+            this.editToolStripButton,
+            this.deleteToolStripButton});
+            this.toolStrip1.Location = new System.Drawing.Point(3, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(136, 42);
+            this.toolStrip1.TabIndex = 1;
+            this.toolStrip1.Visible = false;
+            // 
+            // addToolStripButton
+            // 
+            this.addToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("addToolStripButton.Image")));
+            this.addToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.addToolStripButton.Name = "addToolStripButton";
+            this.addToolStripButton.Size = new System.Drawing.Size(42, 39);
+            this.addToolStripButton.Text = "Dodaj";
+            this.addToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.addToolStripButton.ToolTipText = "Dodaj";
+            this.addToolStripButton.Click += new System.EventHandler(this.addToolStripButton_Click);
+            // 
+            // editToolStripButton
+            // 
+            this.editToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("editToolStripButton.Image")));
+            this.editToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.editToolStripButton.Name = "editToolStripButton";
+            this.editToolStripButton.Size = new System.Drawing.Size(44, 39);
+            this.editToolStripButton.Text = "Edytuj";
+            this.editToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.editToolStripButton.ToolTipText = "Edytuj";
+            this.editToolStripButton.Click += new System.EventHandler(this.editToolStripButton_Click);
+            // 
+            // deleteToolStripButton
+            // 
+            this.deleteToolStripButton.AccessibleName = "Usuń";
+            this.deleteToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteToolStripButton.Image")));
+            this.deleteToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.deleteToolStripButton.Name = "deleteToolStripButton";
+            this.deleteToolStripButton.Size = new System.Drawing.Size(38, 39);
+            this.deleteToolStripButton.Text = "Usuń";
+            this.deleteToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.deleteToolStripButton.Click += new System.EventHandler(this.deleteToolStripButton_Click);
+            // 
             // toolStrip2
             // 
             this.toolStrip2.Dock = System.Windows.Forms.DockStyle.None;
@@ -284,13 +281,12 @@
             this.toolStripLabel1.Name = "toolStripLabel1";
             this.toolStripLabel1.Size = new System.Drawing.Size(103, 22);
             this.toolStripLabel1.Text = "Filtr daty wydania:";
-            this.toolStripLabel1.Click += new System.EventHandler(this.toolStripLabel1_Click);
             // 
             // filterComboBox
             // 
             this.filterComboBox.Items.AddRange(new object[] {
             "Przed 2000r.",
-            "Po 2000r.",
+            "Od 2000r.",
             "Wszystko"});
             this.filterComboBox.Name = "filterComboBox";
             this.filterComboBox.Size = new System.Drawing.Size(121, 25);
@@ -324,7 +320,7 @@
             this.Controls.Add(this.toolStripContainer1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "BooksForm";
-            this.Text = "Books";
+            this.Text = "Lista książek";
             this.Activated += new System.EventHandler(this.StudentsForm_Activated);
             this.Deactivate += new System.EventHandler(this.StudentsForm_Deactivate);
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -338,10 +334,10 @@
             this.toolStripContainer1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);

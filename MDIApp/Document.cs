@@ -6,12 +6,6 @@ using System.Threading.Tasks;
 
 namespace MDIApp
 {
-
-/*    Dane utworu: tytuł, autor, data wydania, kategoria (poezja, fantastyka, kryminał),
-• Filtrowanie według daty wydania(przed 2000r, po 2000r.),
-• Kontrolka użytkownika określająca kategorię(dedykowany edytor dla właściwości
-określającej kategorię).
-*/
     public class Document
     {
         public List<Book> books = new List<Book>();

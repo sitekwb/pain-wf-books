@@ -27,6 +27,17 @@ namespace MDIApp
             Document.AddBookEvent += Document_AddBookEvent;
             Document.UpdateBookEvent += Document_UpdateBookEvent;
             Document.DeleteBookEvent += Document_DeleteBookEvent;
+            ResizeColumns();
+        }
+
+        private void ResizeColumns()
+        {
+            ColumnHeaderAutoResizeStyle style = ColumnHeaderAutoResizeStyle.ColumnContent;
+            if (booksListView.Items.Count == 0)
+            {
+                style = ColumnHeaderAutoResizeStyle.HeaderSize;
+            }
+            booksListView.AutoResizeColumns(style);
         }
 
         private void Form1_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -196,7 +207,7 @@ namespace MDIApp
         private void UpdateStatusStripValue()
         {
             toolStripStatusLabel1.Text = "Wyświetlono elementów: " + booksListView.Items.Count.ToString();
-
+            ResizeColumns();
         }
 
         private void StudentsForm_Activated(object sender, EventArgs e)
